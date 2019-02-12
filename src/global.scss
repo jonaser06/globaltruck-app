@@ -9,3 +9,20 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+
+.spacer{
+    height:120px;
+    background:#fe3232;
+}
+.avatar{
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 7%;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+  }
+  .name{
+    margin-left: 3%;
+  }

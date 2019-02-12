@@ -4,23 +4,24 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home
+        <img src="/assets/img/logo.png" style="width: 8%;">
+        <span>lobal Truck</span>
     </ion-title>
   </ion-toolbar>
+  <ion-searchbar ></ion-searchbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Cordova device</ion-card-subtitle>
-        <ion-card-title>Version del dispositivo</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Telefono : {{SO}} <br>
-        Sistema operativo : {{version}} <br>
-        UUID : {{UUID}} <br>
-        
-      </ion-card-content>
-    </ion-card>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Cordova device</ion-card-subtitle>
+      <ion-card-title>Version del dispositivo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Telefono : {{SO}} <br>
+      Sistema operativo : {{version}} <br>
+      UUID : {{UUID}} <br>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
