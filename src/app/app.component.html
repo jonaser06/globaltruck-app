@@ -3,7 +3,7 @@
     <ion-menu>
       <div class="spacer">
         <div class="image">
-          <img src="/assets/shapes.svg" class="avatar">
+          <img src="/assets/img/avatar-default-icon.png" class="avatar">
         </div>
         <div class="name">
           Jonathan Narvaez
@@ -16,7 +16,7 @@
           <ion-list-header>
             Mi Cuenta
           </ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appAcount">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
@@ -30,9 +30,9 @@
         <!--lista 2 de menu-->
         <ion-list>
           <ion-list-header>
-            Mi Global Truck
+            Global Truck
           </ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appGlobal">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>

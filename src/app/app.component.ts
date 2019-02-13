@@ -9,7 +9,25 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages = [
+  public appAcount = [
+    {
+      title: 'Cuenta',
+      url: '/account',
+      icon: 'contact'
+    },
+    {
+      title: 'Historial',
+      url: '/history',
+      icon: 'time'
+    },
+    {
+      title: 'Cerrar Sesión',
+      url: '/logout',
+      icon: 'exit'
+    }
+  ];
+
+  public appGlobal = [
     {
       title: 'Inicio',
       url: '/home',
@@ -17,13 +35,13 @@ export class AppComponent {
     },
     {
       title: 'Categorías',
-      url: '/list',
-      icon: 'list'
+      url: '/category',
+      icon: 'albums'
     },
     {
       title: 'Servicios',
-      url: '/list',
-      icon: 'list'
+      url: '/services',
+      icon: 'cog'
     }
   ];
 

@@ -17,9 +17,12 @@ const routes: Routes = [
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
-  { path: 'acount', loadChildren: './acount/acount.module#AcountPageModule' },
   { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
-  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' }
+  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
+  { path: 'category', loadChildren: './category/category.module#CategoryPageModule' },
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },  { path: 'services', loadChildren: './services/services.module#ServicesPageModule' }
+
+
 
 ];
 
