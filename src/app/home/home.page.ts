@@ -18,7 +18,7 @@ export class HomePage {
     this.serviceApiService.productosHome().then((result) => {
       this.data = result;
       console.log(this.data);
-    }, (err) => {
+    }, (err) => { 
       
     });
   }
