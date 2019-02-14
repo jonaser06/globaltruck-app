@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-import { Device } from '@ionic-native/device/ngx';
+import { LoadingController } from '@ionic/angular';
+import { ServiceApiService } from '../api/service-api.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +9,18 @@ import { Device } from '@ionic-native/device/ngx';
 })
 export class HomePage {
 
-  SO: string;
-  version: string;
-  UUID: string;
-  constructor (public device: Device){
-    this.SO = device.platform;
-    this.version = device.version;
-    this.UUID = device.uuid;
+  data: any;
+  constructor ( public serviceApiService : ServiceApiService, public loadingController: LoadingController){  
+    this.traerProductos();
+  }
+
+  traerProductos(){
+    this.serviceApiService.productosHome().then((result) => {
+      this.data = result;
+      console.log(this.data);
+    }, (err) => {
+      
+    });
   }
 
 }

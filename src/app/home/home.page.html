@@ -12,16 +12,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="welcome-card">
-    <ion-img src="/assets/shapes.svg"></ion-img>
+  <ion-card class="welcome-card" *ngFor = "let nombre of data">
+    <ion-img src="https://globaltruck.cl/{{ nombre.rutaImagen }}"></ion-img>
     <ion-card-header>
-      <ion-card-subtitle>Cordova device</ion-card-subtitle>
-      <ion-card-title>Version del dispositivo</ion-card-title>
+      <ion-card-subtitle>{{ nombre.urlCategoria }}</ion-card-subtitle>
+      <ion-card-title>{{ nombre.Producto }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Telefono : {{SO}} <br>
-      Sistema operativo : {{version}} <br>
-      UUID : {{UUID}} <br>
+      contenido
     </ion-card-content>
   </ion-card>
 </ion-content>
