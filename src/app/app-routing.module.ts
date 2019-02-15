@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'category', loadChildren: './category/category.module#CategoryPageModule' },
-  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },  { path: 'services', loadChildren: './services/services.module#ServicesPageModule' }
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
+  { path: 'services', loadChildren: './services/services.module#ServicesPageModule' },
+  { path: 'producto/:id', loadChildren: './producto/producto.module#ProductoPageModule' }
 
 
 

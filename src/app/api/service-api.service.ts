@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
-const apiUrl = "https://globaltruck.cl/api/productos";
+const apiUrl = "https://globaltruck.cl/api/";
 @Injectable({
   providedIn: 'root'
 })
@@ -10,11 +10,20 @@ export class ServiceApiService {
   productosHome() {
     return new Promise((resolve, reject) => {
       let headers = new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded'});
-      this.http.post(apiUrl,{},{headers}).subscribe(res => {
+      this.http.post(apiUrl+'productos',{},{headers}).subscribe((res) => {
         resolve(res);
       }, (err) => {
         reject(err);
       });
+    });
+  }
+  productodetalle(id){
+    return new Promise((resolve, reject)=>{
+      let producto = this.http.get(apiUrl+'productourl/'+id).subscribe((res)=>{
+        resolve(res);
+      }, (err)=>{
+        reject(err);
+      });  
     });
   }
 }
