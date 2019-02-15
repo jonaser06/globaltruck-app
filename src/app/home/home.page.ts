@@ -13,7 +13,6 @@ export class HomePage {
   detalleproducto: any;
   constructor ( public serviceApiService : ServiceApiService, public loadingController: LoadingController){  
     this.traerProductos();
-    this.detalle(this.id);
   }
 
   traerProductos(){
@@ -21,14 +20,6 @@ export class HomePage {
       this.data = result;
       console.log(this.data);
     }, (err) => { 
-      //
-    });
-  }
-  detalle(id){
-    this.serviceApiService.productodetalle(id).then((result)=>{
-      this.detalleproducto = result;
-      console.log(this.detalleproducto);
-    }, (err)=>{
       //
     });
   }

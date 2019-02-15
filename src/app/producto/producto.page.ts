@@ -10,14 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductoPage implements OnInit {
 
   content: any;
+ 
   constructor(public serviceApiService: ServiceApiService, public activatedRoute: ActivatedRoute) { }
-
+  
   ngOnInit() {
+    this.Viewdetails();
+  }
+
+  Viewdetails(){
+
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.serviceApiService.productodetalle(id).then((result)=>{
+    this.serviceApiService.productodetalle(id).then((result) => {
       this.content = result;
-      console.log("ver id: ", this.content);
-    }, (err)=>{
+      console.log(this.content);
+    }, (err) => { 
       //
     });
   }

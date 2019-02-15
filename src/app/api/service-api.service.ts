@@ -17,13 +17,13 @@ export class ServiceApiService {
       });
     });
   }
-  productodetalle(id){
-    return new Promise((resolve, reject)=>{
-      let producto = this.http.get(apiUrl+'productourl/'+id).subscribe((res)=>{
+  productodetalle(id: string){
+    return new Promise((resolve, reject) => {
+      this.http.get(apiUrl+'productourl/'+id).subscribe((res) => {
         resolve(res);
-      }, (err)=>{
+      }, (err) => {
         reject(err);
-      });  
+      });
     });
   }
 }
