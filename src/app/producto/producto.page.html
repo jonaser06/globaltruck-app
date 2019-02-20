@@ -1,3 +1,4 @@
+<!--header-->
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -9,34 +10,28 @@
       </ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!--fin del header-->
 <ion-content >
+
+  <!--imagen de producto-->
   <ion-card>
     <ion-img src="https://globaltruck.cl/{{ content?.rutaImagen }}"></ion-img>
   </ion-card>
+  <!--fin de imagen de producto-->
 
+  <!--card descripcion-->
   <ion-card>
     <ion-card-header>
       <ion-card-title >{{ content?.nombre }}</ion-card-title>
-      <ion-card-subtitle>$ {{ content?.precio }}</ion-card-subtitle>
+      <ion-card-subtitle>$ {{ content?.precio }} + IVA</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content [innerHTML]="content?.Descripcion">
         {{ content?.Descripcion }}
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-  
-    <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  
+  <!--fin card descripcion-->
+ 
+  <!--card opciones-->
   <ion-card>
     <ion-item href="#" class="activated">
       <ion-icon name="wifi" slot="start"></ion-icon>
@@ -58,23 +53,21 @@
       <ion-label>Card Button Item 2</ion-label>
     </ion-item>
   </ion-card>
+  <!--fin de card opciones-->
 
-  <!-- Fixed Floating Action Button that does not scroll with the content -->
-  <ion-fab>
-    <ion-fab-button>Button</ion-fab-button>
-  </ion-fab>
-
-  <!-- Default Floating Action Button that scrolls with the content.-->
-  <ion-fab-button>Default</ion-fab-button>
-
-  <!-- Mini -->
-  <ion-fab-button size="small">Mini</ion-fab-button>
-
-  <!-- Colors -->
-  <ion-fab-button color="primary">Primary</ion-fab-button>
-  <ion-fab-button color="secondary">Secondary</ion-fab-button>
-  <ion-fab-button color="danger">Danger</ion-fab-button>
-  <ion-fab-button color="light">Light</ion-fab-button>
-  <ion-fab-button color="dark">Dark</ion-fab-button>
+  
+  <!--Card de Direccion-->
+  <ion-card>
+      <ion-item>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-label>Dirección</ion-label>
+      </ion-item>
+    
+      <ion-card-content>
+        This is content, without any paragraph or header tags,
+        within an ion-card-content element.
+      </ion-card-content>
+    </ion-card>
+    <!--Fin de Card de Direccion-->
     
 </ion-content>
