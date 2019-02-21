@@ -11,6 +11,7 @@ export class HomePage {
   id = 'foco-trasero-con-enchufe-r-n592';
   data: any;
   detalleproducto: any;
+  search: any;
   constructor ( public serviceApiService : ServiceApiService, public loadingController: LoadingController){  
     this.traerProductos();
   }
@@ -20,6 +21,15 @@ export class HomePage {
       this.data = result;
       console.log(this.data);
     }, (err) => { 
+      //
+    });
+  }
+
+  resultadoBusqueda(){
+    this.serviceApiService.buscarProductos(this.search).then((result)=>{
+      this.search = result;
+      console.log(this.search);
+    },(err)=>{
       //
     });
   }

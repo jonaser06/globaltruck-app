@@ -7,6 +7,7 @@ const apiUrl = "https://globaltruck.cl/api/";
 })
 export class ServiceApiService {
   constructor( private http: HttpClient) { }
+
   productosHome() {
     return new Promise((resolve, reject) => {
       let headers = new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded'});
@@ -17,9 +18,24 @@ export class ServiceApiService {
       });
     });
   }
+
   productodetalle(id: string){
     return new Promise((resolve, reject) => {
       this.http.get(apiUrl+'productourl/'+id).subscribe((res) => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
+  buscarProductos(term: string){
+    return new Promise((resolve, reject) => {
+      let headers = new HttpHeaders({
+        'Content-Type':'application/x-www-form-urlencoded'
+      });
+    
+      this.http.post(apiUrl+'busqueda', {}, {headers}).subscribe((res) => {
         resolve(res);
       }, (err) => {
         reject(err);
