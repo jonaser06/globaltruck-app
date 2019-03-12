@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 
 const apiUrl = "https://globaltruck.cl/api/";
 @Injectable({
@@ -31,11 +31,13 @@ export class ServiceApiService {
 
   buscarProductos(term: string){
     return new Promise((resolve, reject) => {
-      let headers = new HttpHeaders({
-        'Content-Type':'application/x-www-form-urlencoded'
-      });
-    
-      this.http.post(apiUrl+'busqueda', {}, {headers}).subscribe((res) => {
+      let headers = new HttpHeaders();
+      
+      //let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('producto', term);
+      
+      this.http.post(apiUrl+'busqueda', {}, {headers: headers}).subscribe((res) => {
         resolve(res);
       }, (err) => {
         reject(err);
