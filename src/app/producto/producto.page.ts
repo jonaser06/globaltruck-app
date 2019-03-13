@@ -20,12 +20,18 @@ export class ProductoPage implements OnInit {
   Viewdetails(){
 
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.serviceApiService.productodetalle(id).then((result) => {
+
+    this.serviceApiService.productodetalle(id).subscribe(post=>{
+        this.content = post;
+    });
+    
+    //funciona tambien asi
+    /* this.serviceApiService.productodetalle(id).then((result) => {
       this.content = result;
       console.log(this.content);
     }, (err) => { 
       //
-    });
+    }); */
   }
 
 }

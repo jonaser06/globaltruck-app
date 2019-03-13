@@ -17,21 +17,26 @@ export class HomePage {
   }
 
   traerProductos(){
-    this.serviceApiService.productosHome().then((result) => {
+    this.serviceApiService.productosHome().subscribe(post=>{
+        this.data = post;
+    });
+
+    //funciona tambien asi
+    /* this.serviceApiService.productosHome().then((result) => {
       this.data = result;
       console.log(this.data);
     }, (err) => { 
       //
-    });
+    }); */
   }
 
   resultadoBusqueda(){
-    this.serviceApiService.buscarProductos(this.search).then((result)=>{
-      this.search = result;
-      console.log(this.search);
-    },(err)=>{
-      //
+    this.serviceApiService.buscarProductos(this.search).subscribe(
+      post=>{
+        this.search = post;
+        console.log(this.search);
     });
+
   }
 
 }
