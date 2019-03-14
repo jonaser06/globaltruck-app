@@ -8,7 +8,7 @@
         <span> Global Truck</span>
     </ion-title>
   </ion-toolbar>
-  <ion-searchbar [(ngModel)]="search" (ionChange)="resultadoBusqueda()">
+  <ion-searchbar [(ngModel)]="term" (ionChange)="resultadoBusqueda($event)">
     
   </ion-searchbar>
 </ion-header>

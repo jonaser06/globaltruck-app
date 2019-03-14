@@ -1,7 +1,8 @@
 export interface Productos {
-    id: number; 
+    id: string;
     Producto: string;
-    precio: number;
+    precio: string;
+    sinDescuento: string;
     Descripcion: string;
     codigo: string;
     stock: string;
@@ -9,4 +10,4 @@ export interface Productos {
     UrlAmigable: string;
     urlsubcategoria: string;
     urlCategoria: string;
-}
+  }

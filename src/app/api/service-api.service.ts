@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Productos } from '../models/productos.interface';
 
-const apiUrl = "https://globaltruck.cl/api/";
-//const apiUrl = "http://localhost/globaltruck/api/";
+//const apiUrl = "https://globaltruck.cl/api/";
+const apiUrl = "http://localhost/globaltruck/api/";
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceApiService {
+  private url: string='';
   constructor( private http: HttpClient) { }
 
   productosHome() {
@@ -40,31 +42,9 @@ export class ServiceApiService {
     }); */
   }
 
-  buscarProductos(term: any){
+  buscarProductos(term: string){
 
-    /* const headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('Accept', 'application/json');
-    headers.append('producto', term);
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.post(apiUrl+'busqueda', {}, options)
-    .map(res => res.json()
-      .catch(error => Observable
-        .throw(error))
-        .subscribe(
-          data => console.log('success'),
-          error => console.log(error)
-        ));
-    
-    } */
-
-    let httpHeaders = new HttpHeaders();
-    httpHeaders.set('Content-Type', 'application/x-www-form-urlencoded');    
-    httpHeaders.set('producto', 'volvo');
-    let options = {headers:httpHeaders};
-
-    return this.http.post(apiUrl+'busqueda', {}, options );
+    return this.http.get<Productos>(apiUrl+'buscar/'+term);
 
   }
 }

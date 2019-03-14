@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
 import { ServiceApiService } from '../api/service-api.service';
+import { Observable } from 'rxjs';
+import { Productos } from '../models/productos.interface';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,11 @@ import { ServiceApiService } from '../api/service-api.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  id = 'foco-trasero-con-enchufe-r-n592';
+  results: Observable<Productos>; 
+  term : string ='';
+
   data: any;
-  detalleproducto: any;
-  search: any;
-  constructor ( public serviceApiService : ServiceApiService, public loadingController: LoadingController){  
+  constructor ( public serviceApiService : ServiceApiService){  
     this.traerProductos();
   }
 
@@ -30,12 +31,17 @@ export class HomePage {
     }); */
   }
 
-  resultadoBusqueda(){
-    this.serviceApiService.buscarProductos(this.search).subscribe(
+  resultadoBusqueda(): void {
+    this.serviceApiService.buscarProductos(this.term).subscribe(
+      resp=>{
+        console.log(resp);
+    });
+
+    /* this.serviceApiService.buscarProductos(this.search).subscribe(
       post=>{
         this.search = post;
         console.log(this.search);
-    });
+    }); */
 
   }
 
