@@ -43,8 +43,11 @@ export class ServiceApiService {
   }
 
   buscarProductos(term: string){
-
-    return this.http.get<Productos>(apiUrl+'buscar/'+term);
+    this.url = apiUrl+'buscar/'+term;
+    console.log(this.url);
+    return this.http.get<Productos>(this.url).pipe(
+      map(results=>results)
+      );
 
   }
 }

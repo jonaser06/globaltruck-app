@@ -9,8 +9,10 @@ import { Productos } from '../models/productos.interface';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  results: Observable<Productos>; 
+  results: Observable<Productos>;
   term : string ='';
+  estadoBusqueda : boolean = false;
+  mostrar: boolean = true;
 
   data: any;
   constructor ( public serviceApiService : ServiceApiService){  
@@ -32,10 +34,14 @@ export class HomePage {
   }
 
   resultadoBusqueda(): void {
-    this.serviceApiService.buscarProductos(this.term).subscribe(
-      resp=>{
-        console.log(resp);
-    });
+    if(this.term !=''){
+      this.estadoBusqueda = true;
+      this.mostrar = false;
+      this.results = this.serviceApiService.buscarProductos(this.term);
+    }else{
+      this.estadoBusqueda = false;
+      this.mostrar = true;
+    }
 
     /* this.serviceApiService.buscarProductos(this.search).subscribe(
       post=>{
