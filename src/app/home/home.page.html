@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header color="dark">
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,12 +8,13 @@
         <span> Global Truck</span>
     </ion-title>
   </ion-toolbar>
-  <ion-searchbar [(ngModel)]="term" (ionChange)="resultadoBusqueda($event)">
+
+  <ion-searchbar placeholder="Buscar productos" color="dark" [(ngModel)]="term" (ionChange)="resultadoBusqueda($event)">
     
   </ion-searchbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
 
   <!-- lo que se muestra cuando usamos el buscador -->
   <div *ngIf="estadoBusqueda">
