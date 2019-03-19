@@ -1,0 +1,16 @@
+ion-card-title{
+    color: var(--ion-color-light) !important;
+}
+.precio-descuento{
+    font-size: 1.5rem;
+}
+.precio-sindescuento, .start-title, .price-after, .precio-descuento{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.precio-sindescuento{
+    margin-bottom: 10px;
+}
+.start-title{
+    color: var(--ion-color-warning) !important;
+}

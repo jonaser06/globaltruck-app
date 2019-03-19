@@ -50,4 +50,8 @@ export class ServiceApiService {
       );
 
   }
+
+  getConfig(){
+    return this.http.get(apiUrl+'configsite/');
+  }
 }

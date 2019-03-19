@@ -9,6 +9,10 @@
 .button-compra{
   position: relative;
 }
+.price-descuento{
+  font-size: 1.5rem;
+  color: var(--ion-color-light) !important;
+}
 .item{
   margin:auto;
   height: 160px;
@@ -23,4 +27,5 @@ ion-img{
 }
 ion-card-title{
   color: var(--ion-color-light) !important;
+  margin-bottom: 10px;
 }

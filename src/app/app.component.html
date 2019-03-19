@@ -10,39 +10,27 @@
         </div>
       </div>
       <ion-content color="dark">
-
-        <!--lista 1 de menu-->
-        <ion-list>
-          <ion-list-header>
-            Mi Cuenta
-          </ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appAcount">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
+        <ion-menu-toggle auto-hide="false">
+          <!--lista 1 de menu-->
+          <ion-item color="dark">Mi Cuenta</ion-item>
+          <div class="menu" *ngFor="let p of appAcount">
+            <ion-item color="dark" [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon" color="light"></ion-icon>
+              {{p.title}}
             </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        <!--fin de lista 1 de menu-->
+          </div>
+          <!--fin de lista 1 de menu-->
         
-        <!--lista 2 de menu-->
-        <ion-list>
-          <ion-list-header>
-            Global Truck
-          </ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appGlobal">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
+          <!--lista 2 de menu-->
+          <ion-item color="dark">Global Truck</ion-item>
+          <div class="submenu" *ngFor="let p of appGlobal">
+            <ion-item color="dark" [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon" color="light"></ion-icon>
+              {{p.title}}
             </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        <!--fin de lista 2 de menu-->
-
+          </div>
+          <!--fin de lista 2 de menu-->
+        </ion-menu-toggle>
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>

@@ -1,4 +1,4 @@
-<ion-header color="dark">
+<ion-header>
   <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -18,7 +18,7 @@
 
   <!-- lo que se muestra cuando usamos el buscador -->
   <div *ngIf="estadoBusqueda">
-      <div class="item" *ngFor = "let nombre of ( results | async )" >
+      <div class="item" *ngFor = "let nombre of ( results | async )" button [routerLink] = "['/', 'producto', nombre.UrlAmigable]">
         
         <div class="image" style="position: relative;float: left; height:100%; width: 45%">
           <ion-img src="https://globaltruck.cl/{{ nombre.rutaImagen }}" style="width:100%; height:100%;"></ion-img>
@@ -26,23 +26,25 @@
         </div>
         <div class="content" style="position: relative;float: right;height:100%; width: 55%;box-sizing: border-box; padding-left:10px; padding-top:10px; ">
           <ion-card-title>{{ nombre.Producto }}</ion-card-title>
-          <ion-card-subtitle>$ {{ nombre.precio }}</ion-card-subtitle>
-          <ion-button color="primary" class="button-compra" button [routerLink] = "['/', 'producto', nombre.UrlAmigable]">Ver</ion-button>
+          <ion-card-subtitle class="price-descuento">$ {{ nombre.precio }}</ion-card-subtitle>
+          <label class="price-after">Antes</label>
+          <ion-card-subtitle ><del>$ {{ nombre.sinDescuento }}</del></ion-card-subtitle>
         </div>
       </div>
   </div>
 
   <!-- lo que se muentra al iniciar la app y al dejar de usar el buscador -->
   <div *ngIf="mostrar" class="mostrar">
-    <div class="item" *ngFor = "let nombre of data" >
+    <div class="item" *ngFor = "let nombre of data" button [routerLink] = "['/', 'producto', nombre.UrlAmigable]">
       <div class="image" style="position: relative;float: left; height:100%; width: 45%">
         <ion-img src="https://globaltruck.cl/{{ nombre.rutaImagen }}" style="width:100%; height:100%;"></ion-img>
         
       </div>
       <div class="content" style="position: relative;float: right;height:100%; width: 55%;box-sizing: border-box; padding-left:10px; padding-top:10px; ">
         <ion-card-title>{{ nombre.Producto }}</ion-card-title>
-        <ion-card-subtitle>$ {{ nombre.precio }}</ion-card-subtitle>
-        <ion-button color="primary" class="button-compra" button [routerLink] = "['/', 'producto', nombre.UrlAmigable]">Ver</ion-button>
+        <ion-card-subtitle class="price-descuento">$ {{ nombre.precio }}</ion-card-subtitle>
+        <label class="price-after">Antes</label>
+        <ion-card-subtitle ><del>$ {{ nombre.sinDescuento }}</del></ion-card-subtitle>
       </div>
     </div>
   </div>

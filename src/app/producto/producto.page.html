@@ -1,6 +1,6 @@
 <!--header-->
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -11,63 +11,48 @@
   </ion-toolbar>
 </ion-header>
 <!--fin del header-->
-<ion-content >
+
+<ion-content color="dark" padding>
 
   <!--imagen de producto-->
-  <ion-card>
+  <ion-card >
     <ion-img src="https://globaltruck.cl/{{ content?.rutaImagen }}"></ion-img>
+    <ion-card-title padding>{{ content?.nombre }}</ion-card-title>
+    <ion-card-title class="start-title" padding>
+      <ion-icon class="star" name="star" *ngFor="let start of [1,2,3,4,5]"></ion-icon>
+    </ion-card-title>
+    <ion-card-subtitle class="precio-descuento" padding style="color:#fff;">$ {{ content?.precio }} + IVA</ion-card-subtitle>
+    <label padding class="price-after">Antes</label>
+    <ion-card-subtitle class="precio-sindescuento" padding><del>$ {{ content?.precioDescuento }}</del></ion-card-subtitle>
   </ion-card>
   <!--fin de imagen de producto-->
-
+  <section padding>
+    <ion-button expand="block" color="primary">Comprar Ahora</ion-button>
+    <ion-button expand="block" color="light">Agregar al carrito de compras</ion-button>
+    <ion-button expand="block" color="light">Marcar como favorito</ion-button>
+  </section>
   <!--card descripcion-->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title >{{ content?.nombre }}</ion-card-title>
-      <ion-card-subtitle>$ {{ content?.precio }} + IVA</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content [innerHTML]="content?.Descripcion">
+  <label color="dark">Acerca del producto</label>
+  <ion-card >
+    <ion-card-content [innerHTML]="content?.Descripcion" >
         {{ content?.Descripcion }}
     </ion-card-content>
   </ion-card>
   <!--fin card descripcion-->
  
-  <!--card opciones-->
-  <ion-card>
-    <ion-item href="#" class="activated">
-      <ion-icon name="wifi" slot="start"></ion-icon>
-      <ion-label>Card Link Item 1 .activated</ion-label>
-    </ion-item>
-  
-    <ion-item href="#">
-      <ion-icon name="wine" slot="start"></ion-icon>
-      <ion-label>Card Link Item 2</ion-label>
-    </ion-item>
-  
-    <ion-item class="activated">
-      <ion-icon name="warning" slot="start"></ion-icon>
-      <ion-label>Card Button Item 1 .activated</ion-label>
-    </ion-item>
-  
-    <ion-item>
-      <ion-icon name="walk" slot="start"></ion-icon>
-      <ion-label>Card Button Item 2</ion-label>
-    </ion-item>
-  </ion-card>
-  <!--fin de card opciones-->
 
   
   <!--Card de Direccion-->
   <ion-card>
-      <ion-item>
-        <ion-icon name="pin" slot="start"></ion-icon>
-        <ion-label>Dirección</ion-label>
-      </ion-item>
-    
-      <ion-card-content>
-        This is content, without any paragraph or header tags,
-        within an ion-card-content element.
-      </ion-card-content>
-    </ion-card>
+    <ion-item color="dark">
+      <ion-icon name="pin" slot="start" color="light"></ion-icon>
+      <ion-label>Dirección</ion-label>
+    </ion-item>
+  
+    <ion-card-content>
+      {{config?.direccion_1}}
+    </ion-card-content>
+  </ion-card>
     <!--Fin de Card de Direccion-->
     
 </ion-content>
