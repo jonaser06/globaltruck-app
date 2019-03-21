@@ -1,0 +1,32 @@
+.sombra-card{
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),
+                0 2px 2px 0 rgba(0,0,0,.14),
+                0 1px 5px 0 rgba(0,0,0,.12);
+    background: var(--ion-color-dark-tint);
+}
+.section-avatar{
+    margin:auto;
+    height: 180px;
+    width: 100%;
+}
+.opcion-acount{
+    margin-top:20px;
+    width: 100%;
+}
+ion-item{
+    --ion-color-base: #383a3e !important;
+}
+.display-avatar{
+    padding-top: 25px;
+}
+.avatarimg{
+    width: 80px;
+    margin: auto;
+}
+.name-account{
+    text-align: center;
+    margin:0px !important;
+}
+.star{
+    color: var(--ion-color-warning) !important;
+}

@@ -1,9 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>account</ion-title>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        <img src="/assets/img/logo.png" style="width: 8%;">
+        <span> Global Truck</span>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content color="dark">
+  <div class="section-avatar sombra-card">
+    <div class="display-avatar">
+      <ion-img src="/assets/img/avatar-default-icon.png" class="avatarimg" ></ion-img>
+    </div>
+    <p class="name-account">Jonathan Narvaez <ion-icon class="star" name="star"></ion-icon></p>
+  </div>
 
+  <div class="opcion-acount sombra-card">
+    <ion-item color="dark">
+      Mi Cuenta 
+    </ion-item>
+    <ion-item color="dark">
+      Dirección de envio
+    </ion-item>
+    <ion-item color="dark">
+      Historial de compras
+    </ion-item>
+  </div>
 </ion-content>
