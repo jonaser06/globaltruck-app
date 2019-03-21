@@ -30,3 +30,29 @@ ion-item{
 .star{
     color: var(--ion-color-warning) !important;
 }
+.menu li{
+    list-style: none;
+}
+.btn{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 16px 20px;
+    border-bottom: 1px solid #000;
+}
+.smenu{
+    background: #666;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    max-height: 0;
+}
+.smenu-item{
+    display: block;
+    padding: 6px 16px;
+}
+.item:target .smenu{
+ max-height: 12em;
+}
+.data-d{
+
+}
