@@ -9,6 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  data : any;
+  detalle : any;
   public appAcount = [
     {
       title: 'Cuenta',
@@ -51,6 +53,25 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    
+  }
+
+  ngOnInit() {
+    this.sesionActivate();
+  }
+
+  sesionActivate(){
+    this.data = JSON.parse(localStorage.getItem('userData'));
+    if(!this.data){
+      console.log('iniciar sesion');
+      this.detalle = {"name":"Iniciar Sesion"};
+    }else{
+      if(this.data.status=='true'){
+        /* variable q se usara en el front */
+        this.detalle = this.data.data;
+        
+      }
+    }
   }
 
   initializeApp() {
