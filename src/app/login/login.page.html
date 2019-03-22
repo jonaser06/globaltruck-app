@@ -1,9 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-
+<ion-content color="dark" padding>
+  <h1>Global Truck</h1>
+  <img class="logologin" src="/assets/img/logo.png">
+  <h4>Iniciar Sesion</h4>
+  <ion-input class="userinput bordermd" type="text" placeholder="Usuario Correo" [(ngModel)]="userData.username"></ion-input>
+  <ion-input class="passinput bordermd" type="password" placeholder="Contraseña" [(ngModel)]="userData.password"></ion-input>
+  <a class="recoverypass" href="#">¿ Olvidaste tu Contraseña ?</a>
+  <ion-button class="btnlogin" expand="block" (click)="login()" >Iniciar Sesion</ion-button>
 </ion-content>
