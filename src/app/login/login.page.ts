@@ -42,7 +42,7 @@ export class LoginPage implements OnInit {
         if(this.responseData.status=='true'){
           /* console.log('login con exito'); */
           localStorage.setItem('userData', JSON.stringify(this.responseData));
-          /* location.reload(); */
+          location.reload();
           this.router.navigate(['/home']);
         }
       }

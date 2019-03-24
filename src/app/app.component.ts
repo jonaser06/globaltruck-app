@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   data : any;
   detalle : any;
+  session : boolean = false;
+  session2 : boolean = false;
   public appAcount = [
     {
       title: 'Cuenta',
@@ -18,9 +21,9 @@ export class AppComponent {
       icon: 'contact'
     },
     {
-      title: 'Historial',
-      url: '/history',
-      icon: 'time'
+      title: 'Favoritos',
+      url: '/favoritos',
+      icon: 'star'
     },
     {
       title: 'Cerrar Sesión',
@@ -50,7 +53,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private router: Router
   ) {
     this.initializeApp();
     
@@ -64,14 +68,18 @@ export class AppComponent {
     this.data = JSON.parse(localStorage.getItem('userData'));
     if(!this.data){
       console.log('iniciar sesion');
-      this.detalle = {"name":"Iniciar Sesion"};
+      this.session = true;
+      this.appAcount.splice(2,1);
     }else{
       if(this.data.status=='true'){
         /* variable q se usara en el front */
         this.detalle = this.data.data;
-        
+        this.session2 = true;
       }
     }
+  }
+  login(){
+    this.router.navigate(['/login']);
   }
 
   initializeApp() {

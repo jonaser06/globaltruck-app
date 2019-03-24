@@ -5,9 +5,12 @@
         <div class="image">
           <img src="/assets/img/avatar-default-icon.png" class="avatar">
         </div>
-        <div class="name">
-          {{ detalle.name }}
+        <div class="name" *ngIf="session">
+          <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle>
         </div>
+        <div class="name" *ngIf="session2">
+            {{ detalle.name }}
+          </div>
       </div>
       <ion-content color="dark">
         <ion-menu-toggle auto-hide="false">

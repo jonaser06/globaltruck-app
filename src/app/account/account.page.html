@@ -11,35 +11,43 @@
 </ion-header>
 
 <ion-content color="dark">
-  <div class="section-avatar sombra-card">
+  <div class="section-avatar sombra-card" *ngIf="session" style="height: auto !important;padding-bottom: 20px !important;">
+    <div class="display-avatar">
+      <ion-img src="/assets/img/avatar-default-icon.png" class="avatarimg" ></ion-img>
+    </div>
+    <p class="name-account">No has iniciado sesión</p>
+    <ion-button style="margin: auto;display: block; width: 50%;" [routerLink]="['/','login']">Iniciar sesión</ion-button>
+  </div>
+
+  <div class="section-avatar sombra-card" *ngIf="session2">
     <div class="display-avatar">
       <ion-img src="/assets/img/avatar-default-icon.png" class="avatarimg" ></ion-img>
     </div>
     <p class="name-account">Jonathan Narvaez <ion-icon class="star" name="star"></ion-icon></p>
   </div>
 
-  <div class="opcion-acount sombra-card">
+  <div class="opcion-acount sombra-card" *ngIf="session2">
     <div class="menu">
       <li class="item" id="account">
         <a href="account#account" class="btn">Mi Cuenta</a>
         <div class="smenu">
           <div class="smenu-item">
-            <span class="data-d">Nombres:</span> Jonathan Sergio
+            <span class="data-d">Nombres:</span> {{ detalle.name }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Apellidos:</span> Narvaez Cuenca
+            <span class="data-d">Apellidos:</span> {{ detalle.lastname }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Cuenta:</span> jonaser01
+            <span class="data-d">Cuenta:</span> {{ detalle.username }}
           </div>
           <div class="smenu-item">
             <span class="data-d">Contraseña:</span> ******
           </div>
           <div class="smenu-item">
-            <span class="data-d">Correo:</span> jonaser01@gmail.com
+            <span class="data-d">Correo:</span> {{ detalle.email }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Telefono:</span> 93514227
+            <span class="data-d">Telefono:</span> {{ detalle.telefono }}
           </div>
         </div>
       </li>
@@ -48,13 +56,13 @@
         <a href="account#direccion" class="btn">Dirección de envio</a>
         <div class="smenu">
           <div class="smenu-item">
-            <span class="data-d">Pais:</span> Perú
+            <span class="data-d">Pais:</span> {{ detalle.pais }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Ciudad:</span> Lima
+            <span class="data-d">Ciudad:</span> {{ detalle.departamento }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Dirección:</span> San Juan de Miraflores
+            <span class="data-d">Dirección:</span> {{ detalle.direccion }}
           </div>
         </div>
       </li>

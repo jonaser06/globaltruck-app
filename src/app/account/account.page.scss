@@ -26,6 +26,7 @@ ion-item{
 .name-account{
     text-align: center;
     margin:0px !important;
+    margin-bottom: 20px !important;
 }
 .star{
     color: var(--ion-color-warning) !important;
@@ -52,7 +53,4 @@ ion-item{
 }
 .item:target .smenu{
  max-height: 12em;
-}
-.data-d{
-
 }
