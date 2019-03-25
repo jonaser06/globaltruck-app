@@ -17,6 +17,10 @@ export class ServiceApiService {
     let headers = new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded'});
     return this.http.post(apiUrl+'productos',{},{headers});
   }
+  getCategorias() {
+    let headers = new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded'});
+    return this.http.post(apiUrl+'categorias',{},{headers});
+  }
 
   productodetalle(id: string){
     return this.http.get(apiUrl+'productourl/'+id);

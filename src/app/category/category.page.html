@@ -1,9 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>category</ion-title>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        <img src="/assets/img/logo.png" style="width: 8%;">
+        <span> Global Truck | Categorías</span>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content color="dark">
+  <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let category of categorias">
+          <ion-card color="dark">
+            <ion-img src="https://globaltruck.cl/{{category.cover}}"></ion-img>
+            <ion-card-content>
+              <ion-card-title>{{ category.name }}</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
 </ion-content>
