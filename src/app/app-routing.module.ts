@@ -22,7 +22,9 @@ const routes: Routes = [
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
   { path: 'services', loadChildren: './services/services.module#ServicesPageModule' },
   { path: 'producto/:id', loadChildren: './producto/producto.module#ProductoPageModule' },
-  { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' }
+  { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' },
+  { path: 'categoria/:id', loadChildren: './categoria/categoria.module#CategoriaPageModule' }
+
 
 
 

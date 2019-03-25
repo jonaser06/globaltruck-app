@@ -24,6 +24,7 @@ export class ProductoPage implements OnInit {
       this.config = res[0];
     });
   }
+  
   Viewdetails(){
 
     let id = this.activatedRoute.snapshot.paramMap.get('id');

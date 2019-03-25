@@ -22,6 +22,10 @@ export class ServiceApiService {
     return this.http.post(apiUrl+'categorias',{},{headers});
   }
 
+  getProductforCategory(id : number, i : number) {
+    return this.http.get(apiUrl+'productosAll/'+id+'/'+i);
+  }
+  
   productodetalle(id: string){
     return this.http.get(apiUrl+'productourl/'+id);
   }

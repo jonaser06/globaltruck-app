@@ -10,14 +10,14 @@ export class CategoryPage implements OnInit {
   
   categorias : any;
 
-  constructor(private serviceApirService : ServiceApiService) { }
+  constructor(private serviceApiService : ServiceApiService) { }
 
   ngOnInit() {
     this.mostrarCategorias();
   }
 
   mostrarCategorias(){
-    this.serviceApirService.getCategorias().subscribe(result=>{
+    this.serviceApiService.getCategorias().subscribe(result=>{
       this.categorias = result;
       console.log(this.categorias);
     });
