@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Productos } from '../models/productos.interface';
 
-//const apiUrl = "https://globaltruck.cl/api/";
-const apiUrl = "http://localhost/globaltruck/api/";
+const apiUrl = "https://globaltruck.cl/api/";
+//const apiUrl = "http://localhost/globaltruck/api/";
 @Injectable({
   providedIn: 'root'
 })
