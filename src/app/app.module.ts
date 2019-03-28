@@ -17,7 +17,7 @@ import { IonicStorageModule } from '@ionic/storage';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    IonicStorageModule,
+    IonicStorageModule.forRoot(),
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,

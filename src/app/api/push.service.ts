@@ -38,9 +38,10 @@ export class PushService {
     console.log("Notificacion recibida",noti);
     });
 
-    this.oneSignal.handleNotificationOpened().subscribe((noti) => {
+    this.oneSignal.handleNotificationOpened().subscribe( async (noti) => {
       // do something when a notification is opened
       console.log("Notificacion abierta",noti);
+      await this.notificacionRecibida(noti.notification);
     });
 
     this.oneSignal.endInit();
@@ -57,7 +58,7 @@ export class PushService {
     this.mensajes.unshift( payload );
     this.pushListener.emit( payload );
 
-    this.guardarMensajes();
+    await this.guardarMensajes();
 
   }
 
@@ -67,5 +68,6 @@ export class PushService {
 
   async cargarMensajes(){
     this.mensajes = await this.storage.get("mensajes") || [];
+    return this.mensajes;
   }
 }
