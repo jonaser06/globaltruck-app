@@ -1,8 +1,8 @@
-import { Component, OnInit, ApplicationRef } from '@angular/core';
+import { Component, ApplicationRef } from '@angular/core';
 import { ServiceApiService } from '../api/service-api.service';
 import { Observable } from 'rxjs';
 import { Productos } from '../models/productos.interface';
-import { OSNotification } from '@ionic-native/onesignal/ngx';
+import { OSNotificationPayload } from '@ionic-native/onesignal/ngx';
 import { PushService } from '../api/push.service';
 
 @Component({
@@ -10,29 +10,29 @@ import { PushService } from '../api/push.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit{
+export class HomePage{
   results: Observable<Productos>;
   term : string ='';
   estadoBusqueda : boolean = false;
   mostrar: boolean = true;
   data: any;
 
-  mensajes: OSNotification [] = [];
+  mensajes: OSNotificationPayload [] = [];
   constructor ( public serviceApiService : ServiceApiService, public pushService : PushService, private applicationRef : ApplicationRef){  
     this.traerProductos();
-  }
-
-  ngOnInit(){
+    
     this.pushService.pushListener.subscribe( noti => {
       this.mensajes.unshift(noti);
       this.applicationRef.tick();
     });
+     
   }
-
-  async ionViewVillEnter(){
+  
+  async ionViewWillEnter(){
     console.log("will enter - cargar mensajes");
     this.mensajes = await this.pushService.getMensajes();
   }
+
   traerProductos(){
     this.serviceApiService.productosHome().subscribe(post=>{
         this.data = post;

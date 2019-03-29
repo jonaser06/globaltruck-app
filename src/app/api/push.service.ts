@@ -52,9 +52,11 @@ export class PushService {
     await this.cargarMensajes();
     const payload = noti.payload;
     const existePush  = this.mensajes.find(mensaje => mensaje.notificationID === payload.notificationID);
-    if( existePush){
+
+    if( existePush ){
       return;
     }
+
     this.mensajes.unshift( payload );
     this.pushListener.emit( payload );
 
@@ -63,10 +65,11 @@ export class PushService {
   }
 
   guardarMensajes(){
-    this.storage.set("mensaje", this.mensajes);
+    this.storage.set("mensajes", this.mensajes);
   }
 
   async cargarMensajes(){
+    
     this.mensajes = await this.storage.get("mensajes") || [];
     return this.mensajes;
   }
