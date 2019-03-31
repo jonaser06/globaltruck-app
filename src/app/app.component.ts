@@ -68,6 +68,7 @@ export class AppComponent {
 
   sesionActivate(){
     this.data = JSON.parse(localStorage.getItem('userData'));
+
     if(!this.data){
       console.log('iniciar sesion');
       this.session = true;

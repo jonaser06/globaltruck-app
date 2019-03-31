@@ -35,7 +35,6 @@ export class LoginPage implements OnInit {
   }
 
   login(){
-    
     this.serviceapiservice.login(this.userData).subscribe(
       result=>{
         this.responseData = result;

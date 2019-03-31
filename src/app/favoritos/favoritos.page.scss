@@ -1,0 +1,38 @@
+.ion-color {
+    background: var(--ion-color-dark) !important;
+  }
+  .borrar {
+    position: relative;
+    text-align: right !important;
+  }
+  .welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  .button-compra{
+    position: relative;
+  }
+  .price-descuento{
+    font-size: 1.5rem;
+    color: var(--ion-color-light) !important;
+  }
+  .item{
+    margin:auto;
+    height: 160px;
+    width: 94%;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),
+                0 2px 2px 0 rgba(0,0,0,.14),
+                0 1px 5px 0 rgba(0,0,0,.12);
+    margin-top:10px;
+  }
+  ion-img{
+    object-fit: cover !important;
+  }
+  ion-card-title{
+    color: var(--ion-color-light) !important;
+    margin-bottom: 10px;
+  }
+.favoritosnull{
+  text-align: center;
+  margin-top: 60%;
+}  
