@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-logout',
@@ -8,15 +9,14 @@ import { Router } from '@angular/router';
 })
 export class LogoutPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private navCtrl: NavController, private storage : Storage) { }
 
   ngOnInit() {
     this.logoutSesion();
   }
 
   logoutSesion(){
-    localStorage.clear();
-    location.reload();
-    this.router.navigate(['/home']);
+    this.storage.remove('token');
+    this.navCtrl.navigateRoot('/home', {animated:true});
   }
 }

@@ -37,7 +37,6 @@ export class LoginPage implements OnInit {
 
   async login(){
     const valido = await this.serviceapiservice.login(this.userData);
-
     if(valido){
       this.navCtrl.navigateRoot('/home', {animated:true});
     }

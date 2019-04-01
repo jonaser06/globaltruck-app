@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Productos } from '../models/productos.interface';
 import { Storage } from '@ionic/storage';
@@ -43,14 +42,14 @@ export class ServiceApiService {
   getConfig(){
     return this.http.get(apiUrl+'configsite/');
   }
+  
   login(credentials) {
     let headers = new HttpHeaders();
     return new Promise(resolve =>{
       this.http.post(apiUrl+'login', JSON.stringify(credentials), {headers: headers})
       .subscribe(resp =>{
         if(resp['status']){
-          this.guardarToken(resp);
-          resolve(true);
+          this.guardarToken(resp).then(()=> resolve (true));
         }else{
           console.log('falle');
           resolve(false);

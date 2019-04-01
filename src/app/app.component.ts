@@ -62,24 +62,18 @@ export class AppComponent {
     private storage: Storage
   ) {
     this.initializeApp();
-    
+    this.sesionActivate();
   }
-
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   async sesionActivate(){
     const token = await this.storage.get('token');
     if(token){
       this.token = token;
-      this.session = true;
-      this.session2 = null;
-    }else{
-      this.session = true;
-      this.session2 = true;
+      console.log(this.token['data']);
     }
   }
+  
   login(){
     this.router.navigate(['/login']);
   }
@@ -89,7 +83,6 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.pushService.configInit();
-      this.sesionActivate();
     });
   }
 }
