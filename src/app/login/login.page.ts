@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceApiService } from '../api/service-api.service';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   detalle : any;
   userData = {"username": "","password": ""};
   data : any;
-  constructor( public serviceapiservice : ServiceApiService, public router: Router) { 
+  constructor( public serviceapiservice : ServiceApiService, public router: Router, private navCtrl: NavController) { 
     this.sesionActivate();
   }
 
@@ -34,18 +35,12 @@ export class LoginPage implements OnInit {
     }
   }
 
-  login(){
-    this.serviceapiservice.login(this.userData).subscribe(
-      result=>{
-        this.responseData = result;
-        if(this.responseData.status=='true'){
-          /* console.log('login con exito'); */
-          localStorage.setItem('userData', JSON.stringify(this.responseData));
-          location.reload();
-          this.router.navigate(['/home']);
-        }
-      }
-    );
+  async login(){
+    const valido = await this.serviceapiservice.login(this.userData);
+
+    if(valido){
+      this.navCtrl.navigateRoot('/home', {animated:true});
+    }
   }
 
 }

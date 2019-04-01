@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { PushService } from './api/push.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent {
   data : any;
   detalle : any;
   session : boolean = false;
-  session2 : boolean = false;
+  session2 : boolean = true;
   public appAcount = [
     {
       title: 'Cuenta',
@@ -51,34 +52,32 @@ export class AppComponent {
     }
   ];
 
+  token : any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    private pushService: PushService
+    private pushService: PushService,
+    private storage: Storage
   ) {
     this.initializeApp();
     
   }
 
   ngOnInit() {
-    this.sesionActivate();
+    
   }
 
-  sesionActivate(){
-    this.data = JSON.parse(localStorage.getItem('userData'));
-
-    if(!this.data){
-      console.log('iniciar sesion');
+  async sesionActivate(){
+    const token = await this.storage.get('token');
+    if(token){
+      this.token = token;
       this.session = true;
-      this.appAcount.splice(2,1);
+      this.session2 = null;
     }else{
-      if(this.data.status=='true'){
-        /* variable q se usara en el front */
-        this.detalle = this.data.data;
-        this.session2 = true;
-      }
+      this.session = true;
+      this.session2 = true;
     }
   }
   login(){
@@ -90,6 +89,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.pushService.configInit();
+      this.sesionActivate();
     });
   }
 }
