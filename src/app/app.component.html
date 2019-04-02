@@ -5,7 +5,7 @@
         <div class="image">
           <img src="/assets/img/avatar-default-icon.png" class="avatar">
         </div>
-        <div class="name" *ngIf="session2">
+        <div class="name" *ngIf="session2" (clicklogin)="recibeEmit($event)">
           <!-- <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle> -->
           {{ token?.data.name }}
         </div>

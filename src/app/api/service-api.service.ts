@@ -48,7 +48,7 @@ export class ServiceApiService {
     return new Promise(resolve =>{
       this.http.post(apiUrl+'login', JSON.stringify(credentials), {headers: headers})
       .subscribe(resp =>{
-        if(resp['status']){
+        if(resp['status']=='true'){
           this.guardarToken(resp).then(()=> resolve (true));
         }else{
           console.log('falle');
@@ -60,5 +60,13 @@ export class ServiceApiService {
   async guardarToken(token){
     this.token = token;
     await this.storage.set('token',token);
+  }
+
+  async getToken(){
+    const token = await this.storage.get('token');
+    if(token){
+      this.token = token;
+      /* console.log(this.token['data']); */
+    }
   }
 }

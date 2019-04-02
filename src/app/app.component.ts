@@ -52,7 +52,8 @@ export class AppComponent {
     }
   ];
 
-  token : any;
+  
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -62,20 +63,16 @@ export class AppComponent {
     private storage: Storage
   ) {
     this.initializeApp();
-    this.sesionActivate();
   }
   ngOnInit() { }
 
-  async sesionActivate(){
-    const token = await this.storage.get('token');
-    if(token){
-      this.token = token;
-      console.log(this.token['data']);
-    }
-  }
   
   login(){
     this.router.navigate(['/login']);
+  }
+
+  recibeEmit(event){
+    console.log("evento emiter :", event);
   }
 
   initializeApp() {
