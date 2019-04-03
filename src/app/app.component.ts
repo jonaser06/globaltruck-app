@@ -16,6 +16,7 @@ export class AppComponent {
   detalle : any;
   session : boolean = false;
   session2 : boolean = true;
+  token : any;
   public appAcount = [
     {
       title: 'Cuenta',
@@ -66,12 +67,8 @@ export class AppComponent {
   }
   ngOnInit() { }
 
-  
-  login(){
-    this.router.navigate(['/login']);
-  }
-
   recibeEmit(event){
+    /* si funciona el emitter lo guardo en token para mostrarlo en el menu */
     console.log("evento emiter :", event);
   }
 
