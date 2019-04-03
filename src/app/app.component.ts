@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { PushService } from './api/push.service';
 import { Storage } from '@ionic/storage';
+import { ServiceApiService } from './api/service-api.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -61,9 +63,18 @@ export class AppComponent {
     private statusBar: StatusBar,
     private router: Router,
     private pushService: PushService,
-    private storage: Storage
+    private storage: Storage,
+    private apiService: ServiceApiService
   ) {
     this.initializeApp();
+    this.token = this.apiService.getToken().pipe(
+      tap(t => {
+        console.log(t); // Aqui esta el token. Lo mismo podras hacer en cualquier componente.
+        // se aun no hay token, recibiran null, controlalo.
+      })
+    );
+    // lo de arriba es solo para loguear. El equivalente seria:
+    // this.token = this.apiService.getToken();
   }
   ngOnInit() { }
 

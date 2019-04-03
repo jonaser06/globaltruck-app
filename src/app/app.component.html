@@ -8,7 +8,11 @@
         <div class="name" *ngIf="session2" (clicklogin)="recibeEmit($event)">
           <!-- <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle> -->
           <!-- debe mostrar el nombre de usuario al iniciar sesion -->
-          {{ token?.data.name }} 
+          <ng-container *ngIf="token | async as authData">
+            {{ authData?.data }} 
+
+          </ng-container>
+          
         </div>
         <div class="name" *ngIf="session">
             hola

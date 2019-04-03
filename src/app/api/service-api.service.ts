@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Productos } from '../models/productos.interface';
 import { Storage } from '@ionic/storage';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 const apiUrl = "https://globaltruck.cl/api/";
 //const apiUrl = "http://localhost/globaltruck/api/";
@@ -11,7 +12,9 @@ const apiUrl = "https://globaltruck.cl/api/";
 })
 export class ServiceApiService {
   private url: string='';
-  token : string = null;
+  token: string = null;
+  
+  private _token: BehaviorSubject<any> = new BehaviorSubject(null);
   constructor( private http: HttpClient, private storage : Storage) { }
 
   productosHome() {
@@ -49,7 +52,8 @@ export class ServiceApiService {
       this.http.post(apiUrl+'login', JSON.stringify(credentials), {headers: headers})
       .subscribe(resp =>{
         if(resp['status']=='true'){
-          this.guardarToken(resp).then(()=> resolve (true));
+          this.guardarToken(resp).then(() => resolve(true));
+          resolve(true);
         }else{
           console.log('falle');
           resolve(false);
@@ -59,14 +63,19 @@ export class ServiceApiService {
   }
   async guardarToken(token){
     this.token = token;
-    await this.storage.set('token',token);
+    this._token.next(token);
+    return await this.storage.set('token',token);
   }
 
-  async getToken(){
-    const token = await this.storage.get('token');
-    if(token){
-      this.token = token;
+  getToken(){
+    //const token = await this.storage.get('token');
+    // if(token){
+    //  this.token = token;
       /* console.log(this.token['data']); */
-    }
+    //  return token;
+    // }
+    return new Observable(fn =>
+      this._token.subscribe(fn)
+    );
   }
 }

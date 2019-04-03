@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
     const valido = await this.serviceapiservice.login(this.userData);
     if(valido){
       /* this.navCtrl.navigateRoot('/home', {animated:true}); */
-      const emitir = this.serviceapiservice.getToken();
+      const emitir = await this.serviceapiservice.getToken();
       this.clicklogin.emit(emitir);
     }
   }
