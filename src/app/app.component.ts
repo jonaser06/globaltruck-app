@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
-
+import { Component, ViewChild } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Router } from '@angular/router';
 import { PushService } from './api/push.service';
-import { Storage } from '@ionic/storage';
+import { ServiceApiService } from './api/service-api.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +14,8 @@ export class AppComponent {
   detalle : any;
   session : boolean = false;
   session2 : boolean = true;
-  token : any;
+
+
   public appAcount = [
     {
       title: 'Cuenta',
@@ -59,18 +58,15 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private router: Router,
     private pushService: PushService,
-    private storage: Storage
+    private serviceApiService: ServiceApiService
   ) {
     this.initializeApp();
+    
   }
-  ngOnInit() { }
-
-  recibeEmit(event){
-    /* si funciona el emitter lo guardo en token para mostrarlo en el menu */
-    console.log("evento emiter :", event);
-  }
+  ngOnInit() {
+    
+   }
 
   initializeApp() {
     this.platform.ready().then(() => {

@@ -11,7 +11,8 @@ const apiUrl = "https://globaltruck.cl/api/";
 })
 export class ServiceApiService {
   private url: string='';
-  token : string = null;
+  token : any;
+  data : any;
   constructor( private http: HttpClient, private storage : Storage) { }
 
   productosHome() {
@@ -62,11 +63,11 @@ export class ServiceApiService {
     await this.storage.set('token',token);
   }
 
-  async getToken(){
-    const token = await this.storage.get('token');
+  getToken(){
+    const token = this.storage.get('token');
     if(token){
       this.token = token;
-      /* console.log(this.token['data']); */
+      return this.token;
     }
   }
 }

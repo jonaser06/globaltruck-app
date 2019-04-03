@@ -3,12 +3,13 @@
     <ion-menu>
       <div class="spacer">
         <div class="image">
+          <app-avatar></app-avatar>
           <img src="/assets/img/avatar-default-icon.png" class="avatar">
         </div>
-        <div class="name" *ngIf="session2" (clicklogin)="recibeEmit($event)">
+        <div class="name" *ngIf="session2">
           <!-- <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle> -->
           <!-- debe mostrar el nombre de usuario al iniciar sesion -->
-          {{ token?.data.name }} 
+          {{ data?.name | async }} 
         </div>
         <div class="name" *ngIf="session">
             hola
