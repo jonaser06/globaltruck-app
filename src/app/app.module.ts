@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { IonicStorageModule } from '@ionic/storage';
-import { ComponentsModule } from './components/components.module';
 
 
 @NgModule({
@@ -25,8 +24,7 @@ import { ComponentsModule } from './components/components.module';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
-    ComponentsModule
+    HttpClientModule
   ],
   providers: [
     StatusBar,
