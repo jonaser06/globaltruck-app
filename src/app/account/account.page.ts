@@ -19,12 +19,6 @@ export class AccountPage implements OnInit {
   }
 
   sesionActivate(){
-    this.serviceApiService.getToken().then((res)=>{
-      if(res.status == 'true'){
-        console.log("llego if", res);
-        this.data = res['data'];
-        this.session = true;
-      }
-    });
+    this.serviceApiService.getToken();
   }
 }

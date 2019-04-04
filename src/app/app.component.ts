@@ -13,11 +13,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AppComponent {
   token : any;
-  detalle : any;
-  session : boolean = false;
-  session2 : boolean = true;
-
-
+  session : boolean = true;
   public appAcount = [
     {
       title: 'Cuenta',
@@ -28,11 +24,6 @@ export class AppComponent {
       title: 'Favoritos',
       url: '/favoritos',
       icon: 'star'
-    },
-    {
-      title: 'Cerrar Sesión',
-      url: '/logout',
-      icon: 'exit'
     }
   ];
 
@@ -68,6 +59,9 @@ export class AppComponent {
     this.token = this.apiService.getToken().pipe(
       tap(t => {
         console.log(t); // Aqui esta el token. Lo mismo podras hacer en cualquier componente.
+        if(t){
+          this.session = false;
+        }
         // se aun no hay token, recibiran null, controlalo.
       })
     );

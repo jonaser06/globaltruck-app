@@ -5,17 +5,16 @@
         <div class="image">
           <img src="/assets/img/avatar-default-icon.png" class="avatar">
         </div>
-        <div class="name" *ngIf="session2">
-          <!-- <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle> -->
+        <div class="name">
           <!-- debe mostrar el nombre de usuario al iniciar sesion -->
           <ng-container *ngIf="token | async as authData">
-            {{ authData?.data }} 
-
+            <!-- {{ authData?.data.name }}  -->
+            {{ authData?.data.name }}
           </ng-container>
-          
-        </div>
-        <div class="name" *ngIf="session">
-            hola
+          <div *ngIf="session == false">
+            <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle>
+          </div>
+
         </div>
       </div>
       <ion-content color="dark">

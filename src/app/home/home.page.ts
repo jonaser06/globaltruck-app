@@ -49,12 +49,7 @@ export class HomePage{
   }
 
   sesionActivate(){
-    this.serviceApiService.getToken().then((res)=>{
-      if(res.status == 'true'){
-        console.log("llego if", res);
-        this.data2 = res['data'];
-      }
-    });
+    this.serviceApiService.getToken();
   }
 
   resultadoBusqueda(): void {
