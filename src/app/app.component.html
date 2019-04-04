@@ -9,7 +9,11 @@
         <div class="name" *ngIf="session2">
           <!-- <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle> -->
           <!-- debe mostrar el nombre de usuario al iniciar sesion -->
-          {{ data?.name | async }} 
+          <ng-container *ngIf="token | async as authData">
+            {{ authData?.data }} 
+
+          </ng-container>
+          
         </div>
         <div class="name" *ngIf="session">
             hola
