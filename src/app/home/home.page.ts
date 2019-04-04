@@ -16,11 +16,12 @@ export class HomePage{
   estadoBusqueda : boolean = false;
   mostrar: boolean = true;
   data: any;
+  data2: any;
 
   mensajes: OSNotificationPayload [] = [];
   constructor ( public serviceApiService : ServiceApiService, public pushService : PushService, private applicationRef : ApplicationRef){  
     this.traerProductos();
-    
+    this.sesionActivate();
     this.pushService.pushListener.subscribe( noti => {
       this.mensajes.unshift(noti);
       this.applicationRef.tick();
@@ -45,6 +46,15 @@ export class HomePage{
     }, (err) => { 
       //
     }); */
+  }
+
+  sesionActivate(){
+    this.serviceApiService.getToken().then((res)=>{
+      if(res.status == 'true'){
+        console.log("llego if", res);
+        this.data2 = res['data'];
+      }
+    });
   }
 
   resultadoBusqueda(): void {

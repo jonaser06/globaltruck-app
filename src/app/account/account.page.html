@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content color="dark">
-  <div class="section-avatar sombra-card" *ngIf="session" style="height: auto !important;padding-bottom: 20px !important;">
+  <div class="section-avatar sombra-card" *ngIf="session == false" style="height: auto !important;padding-bottom: 20px !important;">
     <div class="display-avatar">
       <ion-img src="/assets/img/avatar-default-icon.png" class="avatarimg" ></ion-img>
     </div>
@@ -19,35 +19,35 @@
     <ion-button style="margin: auto;display: block; width: 50%;" [routerLink]="['/','login']">Iniciar sesión</ion-button>
   </div>
 
-  <div class="section-avatar sombra-card" *ngIf="session2">
+  <div class="section-avatar sombra-card" *ngIf="session">
     <div class="display-avatar">
       <ion-img src="/assets/img/avatar-default-icon.png" class="avatarimg" ></ion-img>
     </div>
-    <p class="name-account">Jonathan Narvaez <ion-icon class="star" name="star"></ion-icon></p>
+    <p class="name-account">Jonathan aa <ion-icon class="star" name="star"></ion-icon></p>
   </div>
 
-  <div class="opcion-acount sombra-card" *ngIf="session2">
+  <div class="opcion-acount sombra-card" *ngIf="session">
     <div class="menu">
       <li class="item" id="account">
         <a href="account#account" class="btn">Mi Cuenta</a>
         <div class="smenu">
           <div class="smenu-item">
-            <span class="data-d">Nombres:</span> {{ detalle.name }}
+            <span class="data-d">Nombres:</span> {{ data?.name }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Apellidos:</span> {{ detalle.lastname }}
+            <span class="data-d">Apellidos:</span> {{ data?.lastname }} 
           </div>
           <div class="smenu-item">
-            <span class="data-d">Cuenta:</span> {{ detalle.username }}
+            <span class="data-d">Cuenta:</span> {{ data?.username }}
           </div>
           <div class="smenu-item">
             <span class="data-d">Contraseña:</span> ******
           </div>
           <div class="smenu-item">
-            <span class="data-d">Correo:</span> {{ detalle.email }}
+            <span class="data-d">Correo:</span> {{ data?.email }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Telefono:</span> {{ detalle.telefono }}
+            <span class="data-d">Telefono:</span> {{ data?.telefono }}
           </div>
         </div>
       </li>
@@ -56,13 +56,13 @@
         <a href="account#direccion" class="btn">Dirección de envio</a>
         <div class="smenu">
           <div class="smenu-item">
-            <span class="data-d">Pais:</span> {{ detalle.pais }}
+            <span class="data-d">Pais:</span> {{ data?.pais }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Ciudad:</span> {{ detalle.departamento }}
+            <span class="data-d">Ciudad:</span> {{ data?.departamento }}
           </div>
           <div class="smenu-item">
-            <span class="data-d">Dirección:</span> {{ detalle.direccion }}
+            <span class="data-d">Dirección:</span> {{ data?.direccion }}
           </div>
         </div>
       </li>

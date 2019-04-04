@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceApiService } from '../api/service-api.service';
 
 @Component({
   selector: 'app-account',
@@ -7,27 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPage implements OnInit {
 
-  session : any;
-  session2 : any;
-  data : any;
-  detalle : any;
-  constructor() { }
+  session : boolean = false;
+  data : string = '';
+  constructor(private serviceApiService: ServiceApiService) {
+    this.sesionActivate();
+   }
 
   ngOnInit() {
     this.sesionActivate();
   }
 
   sesionActivate(){
-    this.data = JSON.parse(localStorage.getItem('userData'));
-    if(!this.data){
-      console.log('iniciar sesion');
-      this.session = true;
-    }else{
-      if(this.data.status=='true'){
-        /* variable q se usara en el front */
-        this.detalle = this.data.data;
-        this.session2 = true;
+    this.serviceApiService.getToken().then((res)=>{
+      if(res.status == 'true'){
+        console.log("llego if", res);
+        this.data = res['data'];
+        this.session = true;
       }
-    }
+    });
   }
 }
