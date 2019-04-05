@@ -23,7 +23,7 @@
     <div class="display-avatar">
       <ion-img src="/assets/img/avatar-default-icon.png" class="avatarimg" ></ion-img>
     </div>
-    <p class="name-account">Jonathan aa <ion-icon class="star" name="star"></ion-icon></p>
+    <p class="name-account"> {{data?.name}} <ion-icon class="star" name="star"></ion-icon></p>
   </div>
 
   <div class="opcion-acount sombra-card" *ngIf="session">
@@ -84,5 +84,6 @@
 
     </div>
   </div>
+  <ion-button *ngIf="session" style="margin: auto;margin-top:10px;display: block; width: 95%;" [routerLink]="['/','logout']">Cerrar Sesion</ion-button>
 
 </ion-content>

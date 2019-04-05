@@ -12,7 +12,7 @@ const apiUrl = "https://globaltruck.cl/api/";
 })
 export class ServiceApiService {
   private url: string='';
-  token: string = null;
+  token: any;
   
   private _token: BehaviorSubject<any> = new BehaviorSubject(null);
   constructor( private http: HttpClient, private storage : Storage) { }
@@ -68,14 +68,13 @@ export class ServiceApiService {
   }
 
   getToken(){
-    //const token = await this.storage.get('token');
-    // if(token){
-    //  this.token = token;
-      /* console.log(this.token['data']); */
-    //  return token;
-    // }
     return new Observable(fn =>
       this._token.subscribe(fn)
     );
+  }
+
+  getTokenforsesion(){
+    const token = this.storage.get('token');
+    return token;
   }
 }

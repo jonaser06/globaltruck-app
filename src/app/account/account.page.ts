@@ -9,16 +9,19 @@ import { ServiceApiService } from '../api/service-api.service';
 export class AccountPage implements OnInit {
 
   session : boolean = false;
-  data : string = '';
+  data : any;
   constructor(private serviceApiService: ServiceApiService) {
     this.sesionActivate();
    }
 
-  ngOnInit() {
-    this.sesionActivate();
-  }
+  ngOnInit() { }
 
   sesionActivate(){
-    this.serviceApiService.getToken();
+    this.serviceApiService.getTokenforsesion().then((res)=>{
+      if(res){
+        this.data = res['data'];
+        this.session = true;
+      }
+    })
   }
 }

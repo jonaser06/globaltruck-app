@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { PushService } from './api/push.service';
-import { Storage } from '@ionic/storage';
 import { ServiceApiService } from './api/service-api.service';
 import { tap } from 'rxjs/operators';
 
@@ -52,24 +51,24 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private pushService: PushService,
-    private storage: Storage,
-    private apiService: ServiceApiService
+    private apiService: ServiceApiService,
+    private navCtrl: NavController
   ) {
     this.initializeApp();
     this.token = this.apiService.getToken().pipe(
       tap(t => {
-        console.log(t); // Aqui esta el token. Lo mismo podras hacer en cualquier componente.
+        console.log(t);
         if(t){
           this.session = false;
         }
-        // se aun no hay token, recibiran null, controlalo.
       })
     );
-    // lo de arriba es solo para loguear. El equivalente seria:
-    // this.token = this.apiService.getToken();
+
   }
-  ngOnInit() {
-    
+  ngOnInit() {}
+
+   login(){
+    this.navCtrl.navigateRoot('/login', {animated:true});
    }
 
   initializeApp() {

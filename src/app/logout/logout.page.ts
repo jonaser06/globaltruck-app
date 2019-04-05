@@ -17,6 +17,6 @@ export class LogoutPage implements OnInit {
 
   logoutSesion(){
     this.storage.remove('token');
-    this.navCtrl.navigateRoot('/home', {animated:true});
+    location.href="home";
   }
 }

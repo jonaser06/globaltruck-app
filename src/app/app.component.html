@@ -11,7 +11,7 @@
             <!-- {{ authData?.data.name }}  -->
             {{ authData?.data.name }}
           </ng-container>
-          <div *ngIf="session == false">
+          <div *ngIf="session">
             <ion-menu-toggle class="login" (click)="login()" auto-hide="false"><u>Iniciar sesión</u></ion-menu-toggle>
           </div>
 
