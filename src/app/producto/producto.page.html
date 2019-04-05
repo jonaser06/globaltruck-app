@@ -12,7 +12,7 @@
 </ion-header>
 <!--fin del header-->
 
-<ion-content color="dark" padding>
+<ion-content color="dark">
 
   <!--imagen de producto-->
   <ion-card >
@@ -31,7 +31,7 @@
     <ion-button expand="block" color="light" (click)="addfavorito()"> Marcar como favorito</ion-button>
   </section>
   <!--card descripcion-->
-  <label color="dark">Acerca del producto</label>
+  <label color="dark" class="AboutProduct">Acerca del producto</label>
   <ion-card >
     <ion-card-content [innerHTML]="content?.Descripcion" >
         {{ content?.Descripcion }}

@@ -17,6 +17,8 @@ export class LogoutPage implements OnInit {
 
   logoutSesion(){
     this.storage.remove('token');
-    location.href="home";
+    setInterval(function(){
+      location.href="home";
+    },1500);
   }
 }
