@@ -3,6 +3,9 @@ import { ServiceApiService } from '../api/service-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatalocalService } from '../api/datalocal.service';
 import { Productos } from '../models/productos.interface';
+import { ModalController } from '@ionic/angular';
+import { ModalLlamadaPage } from '../modal-llamada/modal-llamada.page';
+
 
 
 @Component({
@@ -15,7 +18,7 @@ export class ProductoPage implements OnInit {
   content: any;
   config: any;
   producto: Productos;
-  constructor(public serviceApiService: ServiceApiService, public activatedRoute: ActivatedRoute, public dataLocalService: DatalocalService) { }
+  constructor(public modalCtrl : ModalController, public serviceApiService: ServiceApiService, public activatedRoute: ActivatedRoute, public dataLocalService: DatalocalService) { }
   
   ngOnInit() {
     this.Viewdetails();
@@ -71,5 +74,19 @@ export class ProductoPage implements OnInit {
       //
     }); */
   }
+
+  async llamar(){
+    const modal = await this.modalCtrl.create({
+      component: ModalLlamadaPage,
+      componentProps: {
+        nombre: 'Jonathan Narvaez',
+        pais: 'Perú'
+      }
+    });
+
+    await modal.present();
+
+  }
+
 
 }

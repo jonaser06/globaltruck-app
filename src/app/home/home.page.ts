@@ -52,7 +52,7 @@ export class HomePage{
     this.serviceApiService.getToken();
   }
 
-  resultadoBusqueda(): void {
+  resultadoBusqueda( event ): void {
     if(this.term !=''){
       this.estadoBusqueda = true;
       this.mostrar = false;

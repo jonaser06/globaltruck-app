@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Contactos Disponibles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="dark">
+    <ion-list style="background: #222428 !important">
+      <ion-item (click)="llamara(56975881384)" color="dark">
+          <ion-avatar slot="start">
+            <img src="/assets/img/female-icon.jpg">
+          </ion-avatar>
+          <ion-icon name="call" slot="end"></ion-icon>
+          <ion-label>
+            <h2>Valeria</h2>
+            <h3>+56975881384</h3>
+            <p>Con muchas ganas de atenderte</p>
+          </ion-label>
+      </ion-item>
+      <ion-item (click)="llamara(56944115837)" color="dark">
+        <ion-avatar slot="start">
+          <img src="/assets/img/female-icon.jpg">
+        </ion-avatar>
+        <ion-icon name="call" slot="end"></ion-icon>
+        <ion-label>
+          <h2>Neyda</h2>
+          <h3>+56944115837</h3>
+          <p>Atenta a tus dudas</p>
+        </ion-label>
+      </ion-item>
+  
+      <ion-item (click)="llamara(56932680687)" color="dark">
+        <ion-avatar slot="start">
+          <img src="/assets/img/female-icon.jpg">
+        </ion-avatar>
+        <ion-icon name="call" slot="end"></ion-icon>
+        <ion-label>
+          <h2>Katherine</h2>
+          <h3>+56932680687</h3>
+          <p>Dime como te ayudo</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  <ion-button style="width:100%" (click)="salirSinArgumentos()">Cancelar</ion-button> 
+</ion-content>

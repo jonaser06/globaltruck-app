@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'categoria/:id', loadChildren: './categoria/categoria.module#CategoriaPageModule' }
 
 
+
 ];
 
 @NgModule({
