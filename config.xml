@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="cl.globaltruck.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="cl.globaltruck.app" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>GlobalTruck</name>
     <description>Venta de repuesto para Volvo, Scania, Mercedes y más.</description>
     <author email="jonaser06@globaltruck.cl" href="https://globaltruck.cl/">Francisco Llanto</author>
